@@ -19,5 +19,10 @@ aliases: How to Read a Book
 		5. Identify **chapters** that seem to have *pivotal arguments*, read the prefacing/ending summaries if they exist, of the first and last paragraphs
 		6. Thumb through the book, **read a paragraph here and there** and try to follow the pulsebeat of matter, the line of thought beneath the mountain of words
 		7. Read the **conclusion/epilogue** if there is, or whatever chapter/section that seems to conclude/summarize the whole book.
+	- #### Superficial Reading
+		- [ ] Articulate it well, it's important despite the name
+- ### Analytical Reading
+	- [ ] Do Inspectional Reading on a 100 books (easy if you follow the 1hr max rule), before going into this
+- ### Syntopical Reading (for much later)
 ### Best Links on this Topic
 ### Related
