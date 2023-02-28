@@ -20,7 +20,7 @@ aliases: How to Read a Book
 		6. Thumb through the book, **read a paragraph here and there** and try to follow the pulsebeat of matter, the line of thought beneath the mountain of words
 		7. Read the **conclusion/epilogue** if there is, or whatever chapter/section that seems to conclude/summarize the whole book.
 	- #### Superficial Reading
-		- [ ] Articulate it well, it's important despite the name
+		- Read the book entirely, move fast over the things you don't understand, enjoy the things that you do understand. The goal here is to get the big picture of the book
 - ### Analytical Reading
 	- [ ] Do Inspectional Reading on a 100 books (easy if you follow the 1hr max rule), before going into this
 - ### Syntopical Reading (for much later)
