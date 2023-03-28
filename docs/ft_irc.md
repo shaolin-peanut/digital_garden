@@ -36,6 +36,9 @@ aliases:
 			- send messages to server (connection procedure, emulate irssi) in irc format
 			- receive msgs from server with `recv`
 			- Connect and join channel sequence code (footnote 1)
+- I want to use [[design patterns]]
+	- Subject/Observer
+		- For channels, the subject (channel), can hold a list of its (observers), and notify them of any change in the status of the subject (new message). Pretty easy to apply, just a few methods.
 #### Backlog
 ### Sprints
 1. Sprint 1
@@ -92,3 +95,57 @@ while (true) {
 			return 0;
 		}
 ```
+Diagrams
+@startuml
+!theme vibrant
+actor User
+actor Operator
+participant TcpListener
+entity Channel
+
+note across: join channel
+User -> TcpListener: joinChannel("channelName")
+alt if channel does not exist
+    TcpListener -> TcpListener: createChannel("channelName")
+    TcpListener -> Channel: new Channel("channelName")
+end
+TcpListener -> Channel: addUser(user)
+Channel -> User: joinChannel(channel)
+
+note across: leave channel
+User -> TcpListener: leaveChannel("channelName")
+TcpListener -> Channel: removeUser(user)
+Channel -> User: leaveChannel(channel)
+alt no users left in channel
+    TcpListener -> TcpListener: deleteChannel("channelName")
+end
+@enduml
+Another ==
+@startuml
+actor User
+actor Operator
+participant IRCServer
+participant Channel
+
+User -> IRCServer: joinChannel("channelName")
+alt channel does not exist
+    IRCServer -> IRCServer: createChannel("channelName")
+    IRCServer -> Channel: new Channel("channelName")
+end
+IRCServer -> Channel: addUser(user)
+Channel -> User: joinChannel(channel)
+
+Operator -> IRCServer: setOperator(user, "channelName")
+IRCServer -> Channel: setOperator(user)
+Channel -> Operator: hasPrivilege("setOperator")
+alt has privilege
+    Channel -> Channel: operators.insert(ChannelOperator(user, channel))
+end
+
+Operator -> IRCServer: unsetOperator(user, "channelName")
+IRCServer -> Channel: unsetOperator(user)
+Channel -> Operator: hasPrivilege("unsetOperator")
+alt has privilege
+    Channel -> Channel: operators.erase(ChannelOperator(user, channel))
+end
+@enduml
